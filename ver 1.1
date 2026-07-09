@@ -1,0 +1,42 @@
+#cycling route picker
+import tkinter as tk
+import random as r
+root = tk.Tk()
+root.geometry("1920x1080")
+root.title("cycling")
+
+n= 0 
+def on_click():
+    global n
+    n = 0
+    #define random function, V1.0
+    routes = ["intervals at WCH", "Mt Faber 3 laps", "Mt Faber single + coffee base", "Changi village", "Marina Bay Loop from JE", "Bedok Jetty", "Changi Airport", "ECP Length"]
+    resultantforce = r.choice(routes)
+    label = tk.Label(root, text=(resultantforce), font =("Arial,1000"))
+    label.pack(pady=20)
+    n= n+1
+if n == 1:
+    #if clicked more than once, execute zone picker function
+    def on_click2():
+    #define zone picker button function V2.0 update
+        global zones
+        global appliedforce
+        zones = ["Active Recovery(Z1)", "Endurance(Z2)", "Tempo(Z3)", "Sub Threshold(Z4)", "Anaerobic Zone(Z5)"]
+        appliedforce = r.choice(zones)
+        label = tk.Label(root, text=(appliedforce), font =("Arial,1000"))
+        label.pack(pady=60)    
+
+
+button = tk.Button(root, text="Click for route", command=on_click)
+button.pack(pady=20)
+
+button = tk.Button(root, text="Click for zone", command=on_click2)
+button.pack(pady=60)
+
+
+
+
+
+
+root.mainloop()
+ 
